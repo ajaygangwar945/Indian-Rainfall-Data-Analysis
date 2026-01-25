@@ -25,7 +25,7 @@
 |----------|------|-------------|---------|
 | `Rainfall.ipynb` | Jupyter Notebook | Complete data analysis workflow | Main analysis script with EDA, statistical tests, and visualizations |
 | `Rainfall.csv` | CSV Dataset | Raw rainfall data | Source dataset containing 64 years of rainfall measurements |
-| `Rainfall EDA Dashboard.html` | HTML Web Page | Interactive dashboard | Web-based visualization of analysis results |
+| `index.html` | HTML Web Page | Interactive dashboard | Web-based visualization of analysis results (entry page for GitHub Pages) |
 | `README.md` | Markdown | Project documentation | This file - comprehensive project guide |
 | `INT375ProjectReport.pdf` | PDF Document | Academic report | PDF version of the formal project report |
 | `.gitignore` | Git Config | Version control | Git ignore file excluding large report files |
@@ -57,6 +57,10 @@
 
 ## 🚀 Project Components
 
+## 🌐 Live Dashboard (GitHub Pages)
+
+- **Live URL:** https://ajaygangwar945.github.io/Python-Data-Science-Project/
+
 ### **1. Jupyter Notebook Analysis (`Rainfall.ipynb`)**
 **Complete Data Analysis Pipeline:**
 - **Data Loading & Inspection:** Import and initial data exploration
@@ -81,7 +85,7 @@ import plotly.express as px
 import folium
 ```
 
-### **2. Interactive Web Dashboard (`Rainfall EDA Dashboard.html`)**
+### **2. Interactive Web Dashboard (`index.html`)**
 **Modern Web-Based Visualization:**
 - **Responsive Design:** Bootstrap 5 based, mobile-friendly
 - **Interactive Charts:** Chart.js, Plotly.js visualizations
@@ -120,7 +124,7 @@ pip install jupyter pandas numpy matplotlib seaborn scipy scikit-learn plotly fo
 
 ### **For Web Dashboard:**
 1. **Option A - Direct Opening:**
-   - Simply open `Rainfall EDA Dashboard.html` in any modern web browser
+   - Simply open `index.html` in any modern web browser
 
 2. **Option B - Local Server (Recommended):**
    ```bash
@@ -131,7 +135,7 @@ pip install jupyter pandas numpy matplotlib seaborn scipy scikit-learn plotly fo
    python -m http.server 8000
    
    # Open browser and navigate to:
-   http://localhost:8000/Rainfall%20EDA%20Dashboard.html
+   http://localhost:8000/
    ```
 
 ---
@@ -207,7 +211,7 @@ plt.show()
 ```
 
 ### **Accessing Dashboard:**
-1. Open `Rainfall EDA Dashboard.html` in browser
+1. Open `index.html` in browser
 2. Navigate through different sections:
    - Dataset Information
    - Statistical Visualizations
