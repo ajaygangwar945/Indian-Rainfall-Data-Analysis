@@ -9,10 +9,8 @@
 ![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?style=flat&logo=jupyter&logoColor=white)
 ![HTML/CSS](https://img.shields.io/badge/HTML/CSS-Dashboard-E34C26?style=flat&logo=html5&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-Interactive-F7DF1E?style=flat&logo=javascript&logoColor=black)
-![Pandas](https://img.shields.io/badge/Pandas-Data_Analysis-150458?style=flat&logo=pandas&logoColor=white)
-![Matplotlib](https://img.shields.io/badge/Matplotlib-Visualization-11557C?style=flat)
-![Seaborn](https://img.shields.io/badge/Seaborn-Statistical_Visualization-4C72B0?style=flat)
-![Plotly](https://img.shields.io/badge/Plotly-Interactive_Charts-3F4F75?style=flat)
+![Responsive](https://img.shields.io/badge/Mobile-Responsive-blue?style=flat&logo=mobile&logoColor=white)
+![Design](https://img.shields.io/badge/Design-Glassmorphism-a2d2ff?style=flat)
 ![License](https://img.shields.io/badge/License-MIT-green?style=flat)
 
 </div>
@@ -35,6 +33,7 @@
 ## 📊 Dataset Overview
 
 ### **Data Source:**
+
 - **Origin:** Indian Meteorological Department (IMD)
 - **Time Period:** 1951 - 2014 (64 years)
 - **Geographic Coverage:** 36 Meteorological Subdivisions of India
@@ -42,12 +41,14 @@
 - **File Size:** ~250 KB
 
 ### **Data Structure:**
+
 - **20 Columns:** SD NO., SD_Name, YEAR, JAN-DEC (monthly), ANNUAL, seasonal aggregates
 - **Measurement Unit:** Millimeters (mm)
 - **Data Type:** Time Series Data
 - **Frequency:** Annual measurements with monthly breakdowns
 
 ### **Key Features:**
+
 - Monthly rainfall data for all 12 months
 - Seasonal aggregates (Winter, Pre-Monsoon, Monsoon, Post-Monsoon)
 - Annual rainfall totals
@@ -59,10 +60,12 @@
 
 ## 🌐 Live Dashboard (GitHub Pages)
 
-- **Live URL:** https://ajaygangwar945.github.io/Python-Data-Science-Project/
+- **Live URL:** <https://ajaygangwar945.github.io/Python-Data-Science-Project/>
 
 ### **1. Jupyter Notebook Analysis (`Rainfall.ipynb`)**
+
 **Complete Data Analysis Pipeline:**
+
 - **Data Loading & Inspection:** Import and initial data exploration
 - **Data Cleaning:** Missing value handling, outlier detection
 - **Descriptive Statistics:** Summary statistics, data distributions
@@ -72,6 +75,7 @@
 - **Advanced Visualizations:** Interactive plots, heatmaps, maps
 
 **Key Libraries Used:**
+
 ```python
 import pandas as pd
 import numpy as np
@@ -86,7 +90,9 @@ import folium
 ```
 
 ### **2. Interactive Web Dashboard (`index.html`)**
+
 **Modern Web-Based Visualization:**
+
 - **Responsive Design:** Bootstrap 5 based, mobile-friendly
 - **Interactive Charts:** Chart.js, Plotly.js visualizations
 - **Dataset Information:** Comprehensive data dictionary and metadata
@@ -95,38 +101,50 @@ import folium
 - **Professional Styling:** Modern UI with animations and transitions
 
 **Dashboard Features:**
+
 - Annual rainfall trend analysis
 - Seasonal rainfall patterns
 - Monthly distribution charts
 - Correlation heatmaps
-- Rainfall categorization
-- Regional comparisons
+- Rainfall intensity categorization
+- Regional comparisons (Top 10 regions)
 - Outlier detection visualization
+- **NEW: Time Series Forecasting (2015-2025)**
+- **NEW: Detailed Statistical Summary Analysis**
+- **NEW: Premium Rainfall Theme** (Immersive animations & Glassmorphism)
+- **NEW: Full Mobile Optimization** (Triple-breakpoint responsiveness)
+- **NEW: Professional Dark/Light Mode** (localStorage persistent)
 
 ---
 
 ## 🛠 Installation & Setup
 
 ### **Prerequisites:**
+
 ```bash
 # Python 3.x required
 pip install jupyter pandas numpy matplotlib seaborn scipy scikit-learn plotly folium
 ```
 
 ### **For Jupyter Notebook:**
+
 1. Clone or download the repository
 2. Navigate to the project directory
 3. Start Jupyter Notebook:
+
    ```bash
    jupyter notebook
    ```
+
 4. Open `Rainfall.ipynb` and run cells sequentially
 
 ### **For Web Dashboard:**
+
 1. **Option A - Direct Opening:**
    - Simply open `index.html` in any modern web browser
 
 2. **Option B - Local Server (Recommended):**
+
    ```bash
    # Navigate to project directory
    cd "c:/Users/ajayg/College/SEM 4/INT 375/Project"
@@ -143,6 +161,7 @@ pip install jupyter pandas numpy matplotlib seaborn scipy scikit-learn plotly fo
 ## 📈 Analysis Highlights
 
 ### **Key Findings:**
+
 - **Average Annual Rainfall:** 1,400 mm across India
 - **Maximum Recorded:** 5,554 mm (Coastal Karnataka, 1961)
 - **Minimum Recorded:** 86.5 mm
@@ -151,12 +170,14 @@ pip install jupyter pandas numpy matplotlib seaborn scipy scikit-learn plotly fo
 - **Regional Variations:** Significant differences across 36 subdivisions
 
 ### **Statistical Insights:**
+
 - No significant difference in rainfall patterns before vs after 1980
 - Strong correlation between monsoon months (Jun-Sep)
 - K-means clustering identified 4 distinct rainfall patterns
 - Linear regression shows stable long-term trends
 
 ### **Regional Analysis:**
+
 - **Wettest Regions:** Coastal Karnataka, Arunachal Pradesh, Kerala
 - **Driest Regions:** Rajasthan, Gujarat divisions
 - **Seasonal Patterns:** Clear monsoon dominance in most regions
@@ -178,6 +199,7 @@ pip install jupyter pandas numpy matplotlib seaborn scipy scikit-learn plotly fo
 ## 🔧 Technical Implementation
 
 ### **Data Science Stack:**
+
 - **Data Manipulation:** Pandas, NumPy
 - **Statistical Analysis:** SciPy, Scikit-learn
 - **Visualization:** Matplotlib, Seaborn, Plotly
@@ -185,16 +207,21 @@ pip install jupyter pandas numpy matplotlib seaborn scipy scikit-learn plotly fo
 - **Geospatial:** Folium for mapping
 
 ### **Web Technologies:**
+
 - **Frontend:** HTML5, CSS3, JavaScript
 - **Frameworks:** Bootstrap 5, Chart.js, Plotly.js
 - **Icons:** Font Awesome
-- **Design:** Responsive, modern UI with animations
+- **Premium UI:** Glassmorphism design system (20px blur effects)
+- **Immersive Visuals:** Animated rain, dynamic clouds, and water ripples
+- **Responsive:** Mobile-first architecture with hand-crafted media queries
+- **Theme Engine:** Integrated dark/light mode with full chart synchronization
 
 ---
 
 ## 📚 Usage Examples
 
 ### **Running the Analysis:**
+
 ```python
 # Load the data
 import pandas as pd
@@ -211,6 +238,7 @@ plt.show()
 ```
 
 ### **Accessing Dashboard:**
+
 1. Open `index.html` in browser
 2. Navigate through different sections:
    - Dataset Information
@@ -234,11 +262,13 @@ plt.show()
 ## 🤝 Contributing & Usage
 
 ### **For Academic Use:**
+
 - This project serves as a complete reference for EDA projects
 - Code can be adapted for similar time series analysis tasks
 - Dashboard template can be reused for other datasets
 
 ### **For Learning:**
+
 - Comprehensive example of data science workflow
 - Integration of multiple visualization libraries
 - Web development for data presentation
@@ -256,6 +286,7 @@ plt.show()
 ## 📞 Contact & Support
 
 For questions or issues regarding this project:
+
 - Refer to the comprehensive documentation within the notebook
 - Check the web dashboard for interactive explanations
 - Review the academic report for detailed methodology
@@ -267,4 +298,3 @@ For questions or issues regarding this project:
 **⭐ If you find this project helpful, consider giving it a star! ⭐**
 
 </div>
-
