@@ -25,8 +25,6 @@
 | `Rainfall.csv` | CSV Dataset | Raw rainfall data | Source dataset containing 64 years of rainfall measurements |
 | `index.html` | HTML Web Page | Interactive dashboard | Web-based visualization of analysis results (entry page for GitHub Pages) |
 | `README.md` | Markdown | Project documentation | This file - comprehensive project guide |
-| `INT375ProjectReport.pdf` | PDF Document | Academic report | PDF version of the formal project report |
-| `.gitignore` | Git Config | Version control | Git ignore file excluding large report files |
 
 ---
 
@@ -102,18 +100,14 @@ import folium
 
 **Dashboard Features:**
 
-- Annual rainfall trend analysis
-- Seasonal rainfall patterns
-- Monthly distribution charts
-- Correlation heatmaps
-- Rainfall intensity categorization
-- Regional comparisons (Top 10 regions)
-- Outlier detection visualization
-- **NEW: Time Series Forecasting (2015-2025)**
-- **NEW: Detailed Statistical Summary Analysis**
-- **NEW: Premium Rainfall Theme** (Immersive animations & Glassmorphism)
-- **NEW: Full Mobile Optimization** (Triple-breakpoint responsiveness)
-- **NEW: Professional Dark/Light Mode** (localStorage persistent)
+- **3D Rainfall Animation:** Immersive background with Three.js
+- **Glassmorphism UI:** Modern, translucent card design
+- **Theme Support:** Fully functional Light/Dark mode
+- **Interactive Charts:** Annual trends, seasonal patterns, and correlations
+- **Rainfall Categorization:** Visual breakdown of rainfall intensity
+- **Regional Comparisons:** Top 10 regions analysis
+- **Forecasting:** Time series methodology visualization
+- **Mobile Optimized:** Responsive grid layout for all devices
 
 ---
 
@@ -147,7 +141,7 @@ pip install jupyter pandas numpy matplotlib seaborn scipy scikit-learn plotly fo
 
    ```bash
    # Navigate to project directory
-   cd "c:/Users/ajayg/College/SEM 4/INT 375/Project"
+   cd "path/to/project-directory"
    
    # Start local server
    python -m http.server 8000
