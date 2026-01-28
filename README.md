@@ -7,12 +7,16 @@
 ### Comprehensive Exploratory Data Analysis of Indian Rainfall Patterns (1951-2014)
 
 ![Status](https://img.shields.io/badge/Status-Completed-success?style=flat)
+![Stars](https://img.shields.io/github/stars/ajaygangwar945/Python-Data-Science-Project?style=flat&color=FF4B4B&logo=github)
+![Forks](https://img.shields.io/github/forks/ajaygangwar945/Python-Data-Science-Project?style=flat&color=FF4B4B&logo=github)
 ![Python](https://img.shields.io/badge/Python-3.x-3776AB?style=flat&logo=python&logoColor=white)
 ![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?style=flat&logo=jupyter&logoColor=white)
 ![HTML/CSS](https://img.shields.io/badge/HTML/CSS-Dashboard-E34C26?style=flat&logo=html5&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-Interactive-F7DF1E?style=flat&logo=javascript&logoColor=black)
 ![Responsive](https://img.shields.io/badge/Mobile-Responsive-blue?style=flat&logo=mobile&logoColor=white)
 ![Design](https://img.shields.io/badge/Design-Glassmorphism-a2d2ff?style=flat)
+![Size](https://img.shields.io/github/repo-size/ajaygangwar945/Python-Data-Science-Project?style=flat&color=3776AB)
+![Last Commit](https://img.shields.io/github/last-commit/ajaygangwar945/Python-Data-Science-Project?style=flat&color=3776AB)
 ![License](https://img.shields.io/badge/License-MIT-green?style=flat)
 
 </div>
@@ -58,9 +62,11 @@
 
 ## 🚀 Project Components
 
-## 🌐 Live Dashboard (GitHub Pages)
+## 🚀 Live Demo
 
-- **Live URL:** <https://ajaygangwar945.github.io/Python-Data-Science-Project/>
+Try the live version of the app:
+
+[![Live Demo](https://img.shields.io/badge/LIVE-VISIT_SITE-FF4B4B?style=for-the-badge&logo=github-pages&logoColor=white)](https://ajaygangwar945.github.io/Python-Data-Science-Project/)
 
 ### **1. Jupyter Notebook Analysis (`Rainfall.ipynb`)**
 
