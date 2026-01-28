@@ -1,3 +1,5 @@
+<img align="center" width="100%" height="300" src="Gemini_Generated_Image_vp2kcvvp2kcvvp2k.png">
+
 <h1 align="center">🌧️ Rainfall Data Analysis Project</h1>
 
 <div align="center">
@@ -266,24 +268,6 @@ plt.show()
 - Comprehensive example of data science workflow
 - Integration of multiple visualization libraries
 - Web development for data presentation
-
----
-
-## 📄 License & Acknowledgments
-
-- **License:** MIT License
-- **Data Source:** Indian Meteorological Department (IMD)
-- **Academic Purpose:** INT375 Data Science Course Project
-
----
-
-## 📞 Contact & Support
-
-For questions or issues regarding this project:
-
-- Refer to the comprehensive documentation within the notebook
-- Check the web dashboard for interactive explanations
-- Review the academic report for detailed methodology
 
 ---
 
