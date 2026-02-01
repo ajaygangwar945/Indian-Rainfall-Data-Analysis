@@ -1,28 +1,23 @@
-<img align="center" width="100%" height="300" src="Gemini_Generated_Image_vp2kcvvp2kcvvp2k.png">
+<img align="center" width="100%" height="200" style="object-fit: cover" src="Gemini_Generated_Image_vp2kcvvp2kcvvp2k.png">
 
 <h1 align="center">🌧️ Rainfall Data Analysis Project</h1>
-
-<div align="center">
 
 ### Comprehensive Exploratory Data Analysis of Indian Rainfall Patterns (1951-2014)
 
 <div align="center">
 
-![Status](https://img.shields.io/badge/STATUS-COMPLETED-2ea44f?style=for-the-badge&logo=checkmarx)
-![Python](https://img.shields.io/badge/PYTHON-3.x-0288d1?style=for-the-badge&logo=python&logoColor=white)
-![Dataset](https://img.shields.io/badge/DATASET-IMD_CSV-ffa726?style=for-the-badge&logo=spreadsheet&logoColor=white)
-
-![Stars](https://img.shields.io/github/stars/ajaygangwar945/Python-Data-Science-Project?style=flat&color=FF4B4B&logo=github)
-![Forks](https://img.shields.io/github/forks/ajaygangwar945/Python-Data-Science-Project?style=flat&color=FF4B4B&logo=github)
-![Size](https://img.shields.io/github/repo-size/ajaygangwar945/Python-Data-Science-Project?style=flat&color=0288d1)
-![Last Commit](https://img.shields.io/github/last-commit/ajaygangwar945/Python-Data-Science-Project?style=flat&color=0288d1)
-![License](https://img.shields.io/badge/License-MIT-green?style=flat)
-
-![HTML5](https://img.shields.io/badge/HTML5-E34C26?style=flat&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
-![JS](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
-![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=flat&logo=bootstrap&logoColor=white)
-![Three.js](https://img.shields.io/badge/Three.js-000000?style=flat&logo=threedotjs&logoColor=white)
+![Status](https://img.shields.io/badge/STATUS-COMPLETED-2ea44f?style=flat&logo=checkmarx)
+![Stars](https://img.shields.io/github/stars/ajaygangwar945/Rainfall-Data-Analysis-Project?style=flat&color=FF4B4B&logo=github)
+![Forks](https://img.shields.io/github/forks/ajaygangwar945/Rainfall-Data-Analysis-Project?style=flat&color=FF4B4B&logo=github)
+![Python](https://img.shields.io/badge/PYTHON-3.x-0288d1?style=flat&logo=python&logoColor=white)
+![Jupyter](https://img.shields.io/badge/JUPYTER-NOTEBOOK-F37626?style=flat&logo=jupyter&logoColor=white)
+![HTML/CSS](https://img.shields.io/badge/HTML/CSS-DASHBOARD-E34C26?style=flat&logo=html5&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JAVASCRIPT-INTERACTIVE-F7DF1E?style=flat&logo=javascript&logoColor=black)
+![Responsive](https://img.shields.io/badge/MOBILE-RESPONSIVE-blue?style=flat&logo=mobile&logoColor=white)
+![Design](https://img.shields.io/badge/DESIGN-GLASSMORPHISM-a2d2ff?style=flat)
+![Size](https://img.shields.io/github/repo-size/ajaygangwar945/Rainfall-Data-Analysis-Project?style=flat&color=0288d1)
+![Last Commit](https://img.shields.io/github/last-commit/ajaygangwar945/Rainfall-Data-Analysis-Project?style=flat&color=0288d1)
+![License](https://img.shields.io/badge/LICENSE-MIT-green?style=flat)
 
 </div>
 
@@ -69,9 +64,9 @@
 
 ## 🚀 Live Demo
 
-Try the live version of the app:
+The project is fully deployed and accessible online.
 
-[![Live Demo](https://img.shields.io/badge/LIVE-VISIT_SITE-FF4B4B?style=for-the-badge&logo=github-pages&logoColor=white)](https://ajaygangwar945.github.io/Python-Data-Science-Project/)
+[![Live Demo](https://img.shields.io/badge/LIVE-VISIT_SITE-FF4B4B?style=flat&logo=github-pages&logoColor=white)](https://ajaygangwar945.github.io/Rainfall-Data-Analysis-Project/)
 
 ### **1. Jupyter Notebook Analysis (`Rainfall.ipynb`)**
 
