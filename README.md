@@ -1,4 +1,4 @@
-<img align="center" width="100%" height="250" style="object-fit: cover; " src="Gemini_Generated_Image_vp2kcvvp2kcvvp2k.png">
+<img align="center" width="100%" height="200" style="object-fit: cover" src="Gemini_Generated_Image_vp2kcvvp2kcvvp2k.png">
 
 <h1 align="center">🌧️ Indian Rainfall Data Analysis</h1>
 
