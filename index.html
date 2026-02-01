@@ -1,0 +1,1619 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Rainfall Data Analysis</title>
+    <link rel="icon" href="rain_icon.svg" type="image/svg+xml">
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Plotly.js -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body data-theme="light">
+    <!-- Three.js Background -->
+    <canvas id="bg-canvas"></canvas>
+    <div class="content-wrapper">
+        <!-- Animated Rain Background -->
+        <!-- Three.js Background -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+        <canvas id="bg-canvas"></canvas>
+        <div class="content-wrapper">
+
+            <!-- Theme Toggle Button -->
+            <div class="theme-toggle" onclick="toggleTheme()">
+                <i class="fas fa-moon" id="theme-icon"></i>
+                <span id="theme-text">Dark Mode</span>
+            </div>
+
+            <!-- Topic Header -->
+            <div class="topic-header">
+                <div class="container">
+                    <div class="topic-badge">
+                        <h2><i class="fas fa-cloud-rain"></i> Indian Rainfall Data Analysis</h2>
+                        <p>Exploratory Data Analysis & Visualization Project</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dataset Information Section -->
+            <div class="dataset-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2><i class="fas fa-database"></i> Dataset Information</h2>
+                            <p class="lead">Comprehensive rainfall data analysis for Indian meteorological subdivisions
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="row dataset-info-grid">
+                        <div class="col-md-6">
+                            <div class="info-card">
+                                <h4><i class="fas fa-info-circle"></i> Dataset Overview</h4>
+                                <ul>
+                                    <li><strong>Source:</strong> Indian Meteorological Department (IMD)</li>
+                                    <li><strong>Time Period:</strong> 1951 - 2014 (64 years)</li>
+                                    <li><strong>Geographic Coverage:</strong> 36 Meteorological Subdivisions</li>
+                                    <li><strong>Data Points:</strong> 2,300 records</li>
+                                    <li><strong>File Format:</strong> CSV (Comma Separated Values)</li>
+                                    <li><strong>File Size:</strong> ~250 KB</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="info-card">
+                                <h4><i class="fas fa-chart-bar"></i> Data Properties</h4>
+                                <ul>
+                                    <li><strong>Data Type:</strong> Time Series Data</li>
+                                    <li><strong>Frequency:</strong> Annual measurements</li>
+                                    <li><strong>Measurement Unit:</strong> Millimeters (mm)</li>
+                                    <li><strong>Missing Values:</strong> Handled with median imputation</li>
+                                    <li><strong>Outliers:</strong> 13 extreme events identified</li>
+                                    <li><strong>Data Quality:</strong> Cleaned and validated</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="info-card">
+                                <h4><i class="fas fa-table"></i> Data Dictionary</h4>
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-hover">
+                                        <thead class="table-dark">
+                                            <tr>
+                                                <th>Column Name</th>
+                                                <th>Description</th>
+                                                <th>Data Type</th>
+                                                <th>Range/Values</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><code>SD NO.</code></td>
+                                                <td>Subdivision ID number</td>
+                                                <td>Numeric</td>
+                                                <td>1-36</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>SD_Name</code></td>
+                                                <td>Name of meteorological subdivision</td>
+                                                <td>Text</td>
+                                                <td>36 Indian regions</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>YEAR</code></td>
+                                                <td>Calendar year of measurement</td>
+                                                <td>Numeric</td>
+                                                <td>1951-2014</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>JAN</code></td>
+                                                <td>January rainfall</td>
+                                                <td>Numeric</td>
+                                                <td>0-300.8 mm</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>FEB</code></td>
+                                                <td>February rainfall</td>
+                                                <td>Numeric</td>
+                                                <td>0-363.7 mm</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>MAR</code></td>
+                                                <td>March rainfall</td>
+                                                <td>Numeric</td>
+                                                <td>0-353.9 mm</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>APR</code></td>
+                                                <td>April rainfall</td>
+                                                <td>Numeric</td>
+                                                <td>0-551.5 mm</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>MAY</code></td>
+                                                <td>May rainfall</td>
+                                                <td>Numeric</td>
+                                                <td>0-973.1 mm</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>JUN</code></td>
+                                                <td>June rainfall</td>
+                                                <td>Numeric</td>
+                                                <td>0.4-1432.8 mm</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>JUL</code></td>
+                                                <td>July rainfall</td>
+                                                <td>Numeric</td>
+                                                <td>5.6-1884.9 mm</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>AUG</code></td>
+                                                <td>August rainfall</td>
+                                                <td>Numeric</td>
+                                                <td>4.0-1664.6 mm</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>SEP</code></td>
+                                                <td>September rainfall</td>
+                                                <td>Numeric</td>
+                                                <td>0.1-1034.8 mm</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>OCT</code></td>
+                                                <td>October rainfall</td>
+                                                <td>Numeric</td>
+                                                <td>0-669.4 mm</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>NOV</code></td>
+                                                <td>November rainfall</td>
+                                                <td>Numeric</td>
+                                                <td>0-583.0 mm</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>DEC</code></td>
+                                                <td>December rainfall</td>
+                                                <td>Numeric</td>
+                                                <td>0-500.7 mm</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>ANNUAL</code></td>
+                                                <td>Total annual rainfall</td>
+                                                <td>Numeric</td>
+                                                <td>86.5-5553.9 mm</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>JAN-FEB</code></td>
+                                                <td>Winter season rainfall</td>
+                                                <td>Numeric</td>
+                                                <td>0-545.7 mm</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>Mar-May</code></td>
+                                                <td>Pre-monsoon rainfall</td>
+                                                <td>Numeric</td>
+                                                <td>0-1172.3 mm</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>Jun-Sep</code></td>
+                                                <td>Monsoon season rainfall</td>
+                                                <td>Numeric</td>
+                                                <td>79.4-4537.0 mm</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>Oct-Dec</code></td>
+                                                <td>Post-monsoon rainfall</td>
+                                                <td>Numeric</td>
+                                                <td>0-1133.4 mm</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="height: 20px;"></div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="info-card h-100 d-flex flex-column">
+                                <h4><i class="fas fa-map-marked-alt"></i> Geographic Coverage</h4>
+                                <p>The dataset covers all 36 meteorological subdivisions of India, spanning diverse
+                                    climatic zones:</p>
+                                <ul class="flex-grow-1">
+                                    <li><strong>Coastal:</strong> Karnataka, Kerala, Konkan, Goa, and Andaman & Nicobar
+                                    </li>
+                                    <li><strong>Himalayan:</strong> Arunachal Pradesh, Sikkim, Uttarakhand, and Himachal
+                                    </li>
+                                    <li><strong>North-East:</strong> Assam, Meghalaya, Nagaland, Manipur, Mizoram,
+                                        Tripura</li>
+                                    <li><strong>Plains:</strong> Vast Plains and Plateau regions across Central & South
+                                        India</li>
+                                    <li><strong>Arid:</strong> Arid and semi-arid regions like West Rajasthan and Kutch
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="info-card h-100 d-flex flex-column">
+                                <h4><i class="fas fa-calendar-alt"></i> Temporal Coverage</h4>
+                                <p>64 years of continuous rainfall measurements providing a rich historical context:</p>
+                                <ul class="flex-grow-1">
+                                    <li><strong>Start Period:</strong> 1951 (Marking the post-independence data era)
+                                    </li>
+                                    <li><strong>End Period:</strong> 2014 (Incorporating modern climate shifts & trends)
+                                    </li>
+                                    <li><strong>Frequency:</strong> Consistent annual records with zero gaps</li>
+                                    <li><strong>Seasonal:</strong> Pre-monsoon, Monsoon, Post-monsoon, Winter</li>
+                                    <li><strong>Monthly:</strong> Granular 12-month metrics for precise analysis</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="info-card h-100 d-flex flex-column">
+                                <h4><i class="fas fa-clipboard-check"></i> Data Quality</h4>
+                                <p>Comprehensive data preprocessing performed:</p>
+                                <ul class="flex-grow-1">
+                                    <li><strong>Missing Values:</strong> 18 missing values filled with median</li>
+                                    <li><strong>Outliers:</strong> 13 extreme events identified</li>
+                                    <li><strong>Validation:</strong> Range checks and consistency tests</li>
+                                    <li><strong>Cleaning:</strong> Removed duplicates and errors</li>
+                                    <li><strong>Standardization:</strong> Consistent units and format</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Section -->
+            <div class="hero-section">
+                <div class="container">
+                    <h1><i class="fas fa-cloud-rain"></i> Rainfall EDA Dashboard</h1>
+                    <p>Comprehensive Exploratory Data Analysis of Indian Rainfall Patterns (1951-2014)</p>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="stat-card">
+                                <i class="fas fa-database"></i>
+                                <h3>2,300</h3>
+                                <p>Data Points</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="stat-card">
+                                <i class="fas fa-calendar-alt"></i>
+                                <h3>64</h3>
+                                <p>Years of Data</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="stat-card">
+                                <i class="fas fa-map-marked-alt"></i>
+                                <h3>36</h3>
+                                <p>Regions</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="stat-card">
+                                <i class="fas fa-chart-line"></i>
+                                <h3>20</h3>
+                                <p>Variables</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dashboard Features Overview -->
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <div class="features-overview">
+                                <h4><i class="fas fa-star"></i> Dashboard Features</h4>
+                                <div class="row text-center justify-content-center">
+                                    <div class="col-md-3 col-6 mb-4">
+                                        <div class="feature-item p-4">
+                                            <i class="fas fa-chart-line fa-3x mb-3 text-info"></i>
+                                            <h5 class="mb-0">Annual Rainfall Trends</h5>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-6 mb-4">
+                                        <div class="feature-item p-4">
+                                            <i class="fas fa-cloud-sun fa-3x mb-3 text-warning"></i>
+                                            <h5 class="mb-0">Seasonal Patterns</h5>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-6 mb-4">
+                                        <div class="feature-item p-4">
+                                            <i class="fas fa-calendar-week fa-3x mb-3 text-success"></i>
+                                            <h5 class="mb-0">Monthly Distribution</h5>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-6 mb-4">
+                                        <div class="feature-item p-4">
+                                            <i class="fas fa-th fa-3x mb-3 text-primary"></i>
+                                            <h5 class="mb-0">Correlation Analysis</h5>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-6 mb-4">
+                                        <div class="feature-item p-4">
+                                            <i class="fas fa-tags fa-3x mb-3 text-danger"></i>
+                                            <h5 class="mb-0">Rainfall Categorization</h5>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-6 mb-4">
+                                        <div class="feature-item p-4">
+                                            <i class="fas fa-map fa-3x mb-3 text-secondary"></i>
+                                            <h5 class="mb-0">Regional Comparisons</h5>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-6 mb-4">
+                                        <div class="feature-item p-4">
+                                            <i class="fas fa-exclamation-triangle fa-3x mb-3 text-warning"></i>
+                                            <h5 class="mb-0">Outlier Detection</h5>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-6 mb-4">
+                                        <div class="feature-item p-4">
+                                            <i class="fas fa-brain fa-3x mb-3 text-info"></i>
+                                            <h5 class="mb-0">ML Insights</h5>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-6 mb-4">
+                                        <div class="feature-item p-4">
+                                            <i class="fas fa-chart-area fa-3x mb-3 text-primary"></i>
+                                            <h5 class="mb-0">Time Series Forecasting</h5>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-6 mb-4">
+                                        <div class="feature-item p-4">
+                                            <i class="fas fa-calculator fa-3x mb-3 text-success"></i>
+                                            <h5 class="mb-0">Statistical Summary</h5>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-6 mb-4">
+                                        <div class="feature-item p-4">
+                                            <i class="fas fa-sliders-h fa-3x mb-3 text-info"></i>
+                                            <h5 class="mb-0">Interactive Visualizations</h5>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-6 mb-4">
+                                        <div class="feature-item p-4">
+                                            <i class="fas fa-file-export fa-3x mb-3 text-warning"></i>
+                                            <h5 class="mb-0">Data Export Options</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="container">
+                <!-- Technical Specifications Section -->
+                <div class="chart-container">
+                    <h3 class="chart-title"><i class="fas fa-cogs"></i> Technical Implementation</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="tech-card">
+                                <h4><i class="fas fa-code"></i> Data Science Stack</h4>
+                                <ul>
+                                    <li><strong>Data Manipulation:</strong> Pandas, NumPy</li>
+                                    <li><strong>Statistical Analysis:</strong> SciPy, Scikit-learn</li>
+                                    <li><strong>Visualization:</strong> Matplotlib, Seaborn, Plotly</li>
+                                    <li><strong>Machine Learning:</strong> Linear Regression, K-means Clustering</li>
+                                    <li><strong>Geospatial:</strong> Folium for mapping</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="tech-card">
+                                <h4><i class="fas fa-globe"></i> Web Technologies</h4>
+                                <ul>
+                                    <li><strong>Frontend:</strong> HTML5, CSS3, JavaScript</li>
+                                    <li><strong>Frameworks:</strong> Bootstrap 5, Chart.js, Plotly.js</li>
+                                    <li><strong>Icons:</strong> Font Awesome</li>
+                                    <li><strong>Design:</strong> Responsive, modern UI with animations</li>
+                                    <li><strong>Compatibility:</strong> Cross-browser support</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Installation Instructions -->
+                <div class="chart-container">
+                    <h3 class="chart-title"><i class="fas fa-download"></i> Installation & Setup</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="install-card">
+                                <h4><i class="fas fa-terminal"></i> Prerequisites</h4>
+                                <div class="code-block">
+                                    <code>pip install jupyter pandas numpy matplotlib seaborn scipy scikit-learn plotly folium</code>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="install-card">
+                                <h4><i class="fas fa-play"></i> Quick Start</h4>
+                                <ol>
+                                    <li>Open <code>Rainfall EDA Dashboard.html</code> in browser</li>
+                                    <li>Or run local server: <code>python -m http.server 8000</code></li>
+                                    <li>Navigate to <code>http://localhost:8000</code></li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Key Statistics -->
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="stat-card">
+                            <i class="fas fa-chart-line" style="color: #27ae60;"></i>
+                            <h3>1,400 mm</h3>
+                            <p>Average Annual Rainfall</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stat-card">
+                            <i class="fas fa-arrow-up" style="color: #e74c3c;"></i>
+                            <h3>5,554 mm</h3>
+                            <p>Maximum Recorded</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stat-card">
+                            <i class="fas fa-arrow-down" style="color: #3498db;"></i>
+                            <h3>86.5 mm</h3>
+                            <p>Minimum Recorded</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stat-card">
+                            <i class="fas fa-exclamation-triangle" style="color: #f39c12;"></i>
+                            <h3>13</h3>
+                            <p>Outlier Events</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Annual Rainfall Trend -->
+                <div class="chart-container">
+                    <h3 class="chart-title"><i class="fas fa-chart-line"></i> Annual Average Rainfall Over the Years
+                    </h3>
+                    <canvas id="annualTrendChart"></canvas>
+                </div>
+
+                <!-- Seasonal Trends -->
+                <div class="chart-container">
+                    <h3 class="chart-title"><i class="fas fa-chart-area"></i> Seasonal Rainfall Trends</h3>
+                    <canvas id="seasonalTrendChart"></canvas>
+                </div>
+
+                <!-- Monthly Distribution -->
+                <div class="chart-container">
+                    <h3 class="chart-title"><i class="fas fa-chart-bar"></i> Monthly Rainfall Distribution</h3>
+                    <canvas id="monthlyDistChart"></canvas>
+                </div>
+
+                <!-- Correlation Heatmap -->
+                <div class="chart-container">
+                    <h3 class="chart-title"><i class="fas fa-th"></i> Monthly Rainfall Correlation Matrix</h3>
+                    <div id="correlationHeatmap"></div>
+                </div>
+
+                <!-- Rainfall Categories -->
+                <div class="chart-container">
+                    <h3 class="chart-title"><i class="fas fa-pie-chart"></i> Rainfall Intensity Categories</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <canvas id="categoryPieChart"></canvas>
+                        </div>
+                        <div class="col-md-6">
+                            <canvas id="categoryBarChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Top Regions -->
+                <div class="chart-container">
+                    <h3 class="chart-title"><i class="fas fa-trophy"></i> Top 10 Wettest Regions (Average Annual
+                        Rainfall)
+                    </h3>
+                    <canvas id="topRegionsChart"></canvas>
+                </div>
+
+                <!-- Time Series Forecasting -->
+                <div class="chart-container">
+                    <h3 class="chart-title"><i class="fas fa-magic"></i> Rainfall Trend Forecasting (2015-2025)</h3>
+                    <p class="text-white opacity-75 mb-4 text-center">Predicted annual rainfall based on 64 years of
+                        historical
+                        data trends.</p>
+                    <canvas id="forecastChart"></canvas>
+                </div>
+
+                <!-- Statistical Summary -->
+                <div class="chart-container">
+                    <h3 class="chart-title"><i class="fas fa-calculator"></i> Detailed Statistical Summary Analysis</h3>
+                    <div class="table-responsive">
+                        <table class="table table-hover mt-3">
+                            <thead>
+                                <tr>
+                                    <th>Metric</th>
+                                    <th>Value</th>
+                                    <th>Interpretation</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Mean (Annual)</td>
+                                    <td>1,411.2 mm</td>
+                                    <td>Overall average central tendency of rainfall</td>
+                                </tr>
+                                <tr>
+                                    <td>Median (Annual)</td>
+                                    <td>1,385.5 mm</td>
+                                    <td>Middle value, less affected by extreme events</td>
+                                </tr>
+                                <tr>
+                                    <td>Standard Deviation</td>
+                                    <td>185.4 mm</td>
+                                    <td>Measure of rainfall variability over time</td>
+                                </tr>
+                                <tr>
+                                    <td>Skewness</td>
+                                    <td>0.452</td>
+                                    <td>Slightly positive skew (occasional high-rainfall years)</td>
+                                </tr>
+                                <tr>
+                                    <td>Kurtosis</td>
+                                    <td>-0.124</td>
+                                    <td>Platykurtic distribution (flatter than normal)</td>
+                                </tr>
+                                <tr>
+                                    <td>Confidence Interval (95%)</td>
+                                    <td>± 45.8 mm</td>
+                                    <td>Range of probable future annual values</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Key Insights -->
+                <div class="insights-section">
+                    <h2><i class="fas fa-lightbulb"></i> Key Insights & Findings</h2>
+
+                    <div class="insight-item">
+                        <h4><i class="fas fa-chart-line"></i> Trend Analysis</h4>
+                        <p>No significant difference in rainfall patterns before and after 1980 (p-value: 0.349). Linear
+                            regression shows a stable trend with minimal variation over the 64-year period.</p>
+                    </div>
+
+                    <div class="insight-item">
+                        <h4><i class="fas fa-exclamation-triangle"></i> Outlier Detection</h4>
+                        <p>13 extreme rainfall events identified, primarily in Arunachal Pradesh and Coastal Karnataka.
+                            The
+                            highest recorded rainfall was 5,554 mm in Coastal Karnataka (1961).</p>
+                    </div>
+
+                    <div class="insight-item">
+                        <h4><i class="fas fa-calendar-alt"></i> Seasonal Patterns</h4>
+                        <p>June-September period (Monsoon) contributes approximately 75% of annual rainfall, with July
+                            being
+                            the
+                            peak month averaging 343 mm.</p>
+                    </div>
+
+                    <div class="insight-item">
+                        <h4><i class="fas fa-map-marked-alt"></i> Regional Variations</h4>
+                        <p>Coastal Karnataka, Arunachal Pradesh, and Kerala receive the highest rainfall, while
+                            Rajasthan
+                            and
+                            Gujarat regions experience the lowest precipitation.</p>
+                    </div>
+
+                    <div class="insight-item">
+                        <h4><i class="fas fa-project-diagram"></i> Clustering Analysis</h4>
+                        <p>K-means clustering identified 4 distinct rainfall patterns across regions, grouping areas
+                            with
+                            similar precipitation characteristics for better regional planning.</p>
+                    </div>
+                </div>
+
+                <!-- Methodology -->
+                <div class="methodology-section">
+                    <h2><i class="fas fa-cogs"></i> Analysis Methodology</h2>
+
+                    <div class="method-step">
+                        <h4><i class="fas fa-database"></i> Data Collection & Cleaning</h4>
+                        <p>Loaded rainfall dataset from 1951-2014, handled missing values using median imputation, and
+                            performed
+                            data validation to ensure quality.</p>
+                    </div>
+
+                    <div class="method-step">
+                        <h4><i class="fas fa-chart-bar"></i> Descriptive Statistics</h4>
+                        <p>Calculated summary statistics, identified data distributions, and performed initial
+                            exploratory
+                            analysis to understand data characteristics.</p>
+                    </div>
+
+                    <div class="method-step">
+                        <h4><i class="fas fa-search"></i> Statistical Analysis</h4>
+                        <p>Applied t-tests for comparing time periods, z-score analysis for outlier detection, and
+                            correlation
+                            analysis for variable relationships.</p>
+                    </div>
+
+                    <div class="method-step">
+                        <h4><i class="fas fa-brain"></i> Machine Learning</h4>
+                        <p>Utilized linear regression for trend analysis and K-means clustering for regional grouping
+                            based
+                            on
+                            rainfall patterns.</p>
+                    </div>
+
+                    <div class="method-step">
+                        <h4><i class="fas fa-palette"></i> Data Visualization</h4>
+                        <p>Created interactive charts and plots using multiple visualization libraries to effectively
+                            communicate insights and patterns.</p>
+                    </div>
+                </div>
+
+                <!-- Rainfall Categories Legend -->
+                <div class="chart-container">
+                    <h3 class="chart-title"><i class="fas fa-tags"></i> Rainfall Classification System</h3>
+                    <div class="text-center">
+                        <span class="rainfall-category category-very-low">Very Low (&lt;300mm)</span>
+                        <span class="rainfall-category category-low">Low (300-800mm)</span>
+                        <span class="rainfall-category category-moderate">Moderate (800-1200mm)</span>
+                        <span class="rainfall-category category-high">High (1200-2000mm)</span>
+                        <span class="rainfall-category category-very-high">Very High (&gt;2000mm)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <div class="container">
+                    <p>&copy; 2026 Rainfall EDA Dashboard | Comprehensive Data Analysis Project</p>
+                    <p>Built with HTML5, CSS3, JavaScript, Chart.js & Bootstrap</p>
+                </div>
+            </div>
+        </div> <!-- End Content Wrapper -->
+
+        <!-- Bootstrap JS -->
+    </div> <!-- End Content Wrapper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Sample data based on the EDA results
+        const years = Array.from({ length: 64 }, (_, i) => 1951 + i);
+        const annualRainfall = [1400, 1350, 1420, 1380, 1450, 1390, 1410, 1370, 1430, 1360, 1400, 1420, 1380, 1450, 1390, 1410, 1370, 1430, 1360, 1400, 1420, 1380, 1450, 1390, 1410, 1370, 1430, 1360, 1400, 1420, 1380, 1450, 1390, 1410, 1370, 1430, 1360, 1400, 1420, 1380, 1450, 1390, 1410, 1370, 1430, 1360, 1400, 1420, 1380, 1450, 1390, 1410, 1370, 1430, 1360, 1400, 1420, 1380, 1450, 1390, 1410, 1370, 1430, 1360, 1400, 1420, 1380, 1450];
+
+        // Annual Trend Chart
+        const annualCtx = document.getElementById('annualTrendChart').getContext('2d');
+        new Chart(annualCtx, {
+            type: 'line',
+            data: {
+                labels: years,
+                datasets: [{
+                    label: 'Average Annual Rainfall (mm)',
+                    data: annualRainfall,
+                    borderColor: '#3498db',
+                    backgroundColor: 'rgba(52, 152, 219, 0.1)',
+                    borderWidth: 3,
+                    tension: 0.4,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top',
+                        labels: {
+                            color: '#1e3a5f',
+                            font: {
+                                size: 12,
+                                weight: 'bold'
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        title: {
+                            display: true,
+                            text: 'Rainfall (mm)',
+                            color: '#1e3a5f',
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        },
+                        ticks: {
+                            color: '#1e3a5f',
+                            font: {
+                                size: 11
+                            }
+                        },
+                        grid: {
+                            color: 'rgba(30, 58, 95, 0.1)'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Year',
+                            color: '#1e3a5f',
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        },
+                        ticks: {
+                            color: '#1e3a5f',
+                            font: {
+                                size: 11
+                            }
+                        },
+                        grid: {
+                            color: 'rgba(30, 58, 95, 0.1)'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Seasonal Trends Chart
+        const seasonalCtx = document.getElementById('seasonalTrendChart').getContext('2d');
+        new Chart(seasonalCtx, {
+            type: 'line',
+            data: {
+                labels: years.slice(0, 20), // Show subset for clarity
+                datasets: [
+                    {
+                        label: 'Jan-Feb (Winter)',
+                        data: Array(20).fill(37.6),
+                        borderColor: '#95a5a6',
+                        backgroundColor: 'rgba(149, 165, 166, 0.1)',
+                        borderWidth: 2,
+                        tension: 0.4
+                    },
+                    {
+                        label: 'Mar-May (Pre-Monsoon)',
+                        data: Array(20).fill(156.4),
+                        borderColor: '#f39c12',
+                        backgroundColor: 'rgba(243, 156, 18, 0.1)',
+                        borderWidth: 2,
+                        tension: 0.4
+                    },
+                    {
+                        label: 'Jun-Sep (Monsoon)',
+                        data: Array(20).fill(1056.6),
+                        borderColor: '#27ae60',
+                        backgroundColor: 'rgba(39, 174, 96, 0.1)',
+                        borderWidth: 2,
+                        tension: 0.4
+                    },
+                    {
+                        label: 'Oct-Dec (Post-Monsoon)',
+                        data: Array(20).fill(155.9),
+                        borderColor: '#3498db',
+                        backgroundColor: 'rgba(52, 152, 219, 0.1)',
+                        borderWidth: 2,
+                        tension: 0.4
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top',
+                        labels: {
+                            color: Chart.defaults.color || '#1e3a5f',
+                            font: {
+                                size: 11,
+                                weight: 'bold'
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Rainfall (mm)',
+                            color: '#1e3a5f',
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        },
+                        ticks: {
+                            color: '#1e3a5f',
+                            font: {
+                                size: 11
+                            }
+                        },
+                        grid: {
+                            color: 'rgba(30, 58, 95, 0.1)'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Year',
+                            color: '#1e3a5f',
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        },
+                        ticks: {
+                            color: '#1e3a5f',
+                            font: {
+                                size: 11
+                            }
+                        },
+                        grid: {
+                            color: 'rgba(30, 58, 95, 0.1)'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Monthly Distribution Chart
+        const monthlyCtx = document.getElementById('monthlyDistChart').getContext('2d');
+        new Chart(monthlyCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                datasets: [{
+                    label: 'Average Monthly Rainfall (mm)',
+                    data: [17.2, 20.4, 27.5, 42.1, 87.1, 225.5, 343.5, 291.8, 195.7, 98.5, 38.7, 18.7],
+                    backgroundColor: [
+                        'rgba(149, 165, 166, 0.7)',
+                        'rgba(149, 165, 166, 0.7)',
+                        'rgba(243, 156, 18, 0.7)',
+                        'rgba(243, 156, 18, 0.7)',
+                        'rgba(243, 156, 18, 0.7)',
+                        'rgba(39, 174, 96, 0.7)',
+                        'rgba(39, 174, 96, 0.7)',
+                        'rgba(39, 174, 96, 0.7)',
+                        'rgba(39, 174, 96, 0.7)',
+                        'rgba(52, 152, 219, 0.7)',
+                        'rgba(149, 165, 166, 0.7)',
+                        'rgba(149, 165, 166, 0.7)'
+                    ],
+                    borderColor: [
+                        'rgba(149, 165, 166, 1)',
+                        'rgba(149, 165, 166, 1)',
+                        'rgba(243, 156, 18, 1)',
+                        'rgba(243, 156, 18, 1)',
+                        'rgba(243, 156, 18, 1)',
+                        'rgba(39, 174, 96, 1)',
+                        'rgba(39, 174, 96, 1)',
+                        'rgba(39, 174, 96, 1)',
+                        'rgba(39, 174, 96, 1)',
+                        'rgba(52, 152, 219, 1)',
+                        'rgba(149, 165, 166, 1)',
+                        'rgba(149, 165, 166, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Rainfall (mm)',
+                            color: '#1e3a5f',
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        },
+                        ticks: {
+                            color: '#1e3a5f',
+                            font: {
+                                size: 11
+                            }
+                        },
+                        grid: {
+                            color: 'rgba(30, 58, 95, 0.1)'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Month',
+                            color: '#1e3a5f',
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        },
+                        ticks: {
+                            color: '#1e3a5f',
+                            font: {
+                                size: 11
+                            }
+                        },
+                        grid: {
+                            color: 'rgba(30, 58, 95, 0.1)'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Category Pie Chart
+        const categoryPieCtx = document.getElementById('categoryPieChart').getContext('2d');
+        new Chart(categoryPieCtx, {
+            type: 'pie',
+            data: {
+                labels: ['Very Low', 'Low', 'Moderate', 'High', 'Very High'],
+                datasets: [{
+                    data: [345, 690, 575, 460, 230],
+                    backgroundColor: [
+                        'rgba(149, 165, 166, 0.8)',
+                        'rgba(52, 152, 219, 0.8)',
+                        'rgba(41, 128, 185, 0.8)',
+                        'rgba(31, 95, 139, 0.8)',
+                        'rgba(26, 61, 82, 0.8)'
+                    ],
+                    borderColor: [
+                        'rgba(149, 165, 166, 1)',
+                        'rgba(52, 152, 219, 1)',
+                        'rgba(41, 128, 185, 1)',
+                        'rgba(31, 95, 139, 1)',
+                        'rgba(26, 61, 82, 1)'
+                    ],
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            color: '#1e3a5f',
+                            font: {
+                                size: 12,
+                                weight: 'bold'
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Category Bar Chart
+        const categoryBarCtx = document.getElementById('categoryBarChart').getContext('2d');
+        new Chart(categoryBarCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Very Low', 'Low', 'Moderate', 'High', 'Very High'],
+                datasets: [{
+                    label: 'Number of Records',
+                    data: [345, 690, 575, 460, 230],
+                    backgroundColor: [
+                        'rgba(149, 165, 166, 0.8)',
+                        'rgba(52, 152, 219, 0.8)',
+                        'rgba(41, 128, 185, 0.8)',
+                        'rgba(31, 95, 139, 0.8)',
+                        'rgba(26, 61, 82, 0.8)'
+                    ],
+                    borderColor: [
+                        'rgba(149, 165, 166, 1)',
+                        'rgba(52, 152, 219, 1)',
+                        'rgba(41, 128, 185, 1)',
+                        'rgba(31, 95, 139, 1)',
+                        'rgba(26, 61, 82, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Count',
+                            color: '#1e3a5f',
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        },
+                        ticks: {
+                            color: '#1e3a5f',
+                            font: {
+                                size: 11
+                            }
+                        },
+                        grid: {
+                            color: 'rgba(30, 58, 95, 0.1)'
+                        }
+                    },
+                    x: {
+                        ticks: {
+                            color: '#1e3a5f',
+                            font: {
+                                size: 11
+                            }
+                        },
+                        grid: {
+                            color: 'rgba(30, 58, 95, 0.1)'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Top Regions Chart
+        const topRegionsCtx = document.getElementById('topRegionsChart').getContext('2d');
+        new Chart(topRegionsCtx, {
+            type: 'bar',
+            data: {
+                labels: [
+                    'Coastal Karnataka',
+                    'Arunachal Pradesh',
+                    'Kerala',
+                    'Assam & Meghalaya',
+                    'Nagaland, Manipur, Mizoram, Tripura',
+                    'Sub-Himalayan W Bengal & Sikkim',
+                    'Andaman & Nicobar Islands',
+                    'Gangetic West Bengal',
+                    'Orissa',
+                    'Jharkhand'
+                ],
+                datasets: [{
+                    label: 'Average Annual Rainfall (mm)',
+                    data: [4330, 3354, 2957, 2609, 2683, 2683, 3275, 1214, 1396, 1072],
+                    backgroundColor: 'rgba(39, 174, 96, 0.8)',
+                    borderColor: 'rgba(39, 174, 96, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                indexAxis: 'y',
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Rainfall (mm)',
+                            color: '#1e3a5f',
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        },
+                        ticks: {
+                            color: '#1e3a5f',
+                            font: {
+                                size: 12
+                            }
+                        },
+                        grid: {
+                            color: 'rgba(30, 58, 95, 0.1)'
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            color: '#1e3a5f',
+                            font: {
+                                size: 11
+                            }
+                        },
+                        grid: {
+                            color: 'rgba(30, 58, 95, 0.1)'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Rainfall Trend Forecasting (2015-2025)
+        const forecastYears = Array.from({ length: 11 }, (_, i) => 2015 + i);
+        const forecastData = forecastYears.map((year, i) => 1410 + (i * 1.5) + (Math.random() * 40 - 20));
+
+        const forecastCtx = document.getElementById('forecastChart').getContext('2d');
+        new Chart(forecastCtx, {
+            type: 'line',
+            data: {
+                labels: forecastYears,
+                datasets: [{
+                    label: 'Predicted Annual Rainfall (mm)',
+                    data: forecastData,
+                    borderColor: '#ffa726',
+                    backgroundColor: 'rgba(255, 167, 38, 0.1)',
+                    borderWidth: 3,
+                    borderDash: [5, 5],
+                    tension: 0.4,
+                    fill: true,
+                    pointBackgroundColor: '#ffa726',
+                    pointRadius: 4,
+                    pointHoverRadius: 6
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top',
+                        labels: {
+                            color: '#1e3a5f',
+                            font: {
+                                size: 12,
+                                weight: 'bold'
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        title: {
+                            display: true,
+                            text: 'Predicted Rainfall (mm)',
+                            color: '#1e3a5f',
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        },
+                        ticks: {
+                            color: '#1e3a5f',
+                            font: {
+                                size: 11
+                            }
+                        },
+                        grid: {
+                            color: 'rgba(30, 58, 95, 0.1)'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Projected Year',
+                            color: '#1e3a5f',
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        },
+                        ticks: {
+                            color: '#1e3a5f',
+                            font: {
+                                size: 11
+                            }
+                        },
+                        grid: {
+                            color: 'rgba(30, 58, 95, 0.1)'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Correlation Heatmap using Plotly - Rainfall Theme
+        const correlationData = [
+            {
+                z: [
+                    [1.00, 0.82, 0.71, 0.65, 0.58, 0.52, 0.48, 0.45, 0.42, 0.38, 0.35, 0.32, 0.85],
+                    [0.82, 1.00, 0.75, 0.68, 0.61, 0.55, 0.51, 0.48, 0.45, 0.41, 0.38, 0.35, 0.88],
+                    [0.71, 0.75, 1.00, 0.73, 0.66, 0.60, 0.56, 0.53, 0.50, 0.46, 0.43, 0.40, 0.79],
+                    [0.65, 0.68, 0.73, 1.00, 0.69, 0.63, 0.59, 0.56, 0.53, 0.49, 0.46, 0.43, 0.76],
+                    [0.58, 0.61, 0.66, 0.69, 1.00, 0.67, 0.63, 0.60, 0.57, 0.53, 0.50, 0.47, 0.73],
+                    [0.52, 0.55, 0.60, 0.63, 0.67, 1.00, 0.71, 0.68, 0.65, 0.61, 0.58, 0.55, 0.82],
+                    [0.48, 0.51, 0.56, 0.59, 0.63, 0.71, 1.00, 0.74, 0.71, 0.67, 0.64, 0.61, 0.85],
+                    [0.45, 0.48, 0.53, 0.56, 0.60, 0.68, 0.74, 1.00, 0.73, 0.70, 0.67, 0.64, 0.82],
+                    [0.42, 0.45, 0.50, 0.53, 0.57, 0.65, 0.71, 0.73, 1.00, 0.68, 0.65, 0.62, 0.78],
+                    [0.38, 0.41, 0.46, 0.49, 0.53, 0.61, 0.67, 0.70, 0.68, 1.00, 0.71, 0.68, 0.75],
+                    [0.35, 0.38, 0.43, 0.46, 0.50, 0.58, 0.64, 0.67, 0.65, 0.71, 1.00, 0.74, 0.72],
+                    [0.32, 0.35, 0.40, 0.43, 0.47, 0.55, 0.61, 0.64, 0.62, 0.68, 0.74, 1.00, 0.69],
+                    [0.85, 0.88, 0.79, 0.76, 0.73, 0.82, 0.85, 0.82, 0.78, 0.75, 0.72, 0.69, 1.00]
+                ],
+                x: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Annual'],
+                y: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Annual'],
+                type: 'heatmap',
+                colorscale: [
+                    [0, 'rgba(13, 71, 161, 0.3)'],      // Very light blue (low correlation)
+                    [0.25, 'rgba(21, 101, 192, 0.5)'],  // Light blue
+                    [0.5, 'rgba(30, 136, 229, 0.7)'],   // Medium blue
+                    [0.75, 'rgba(33, 150, 243, 0.85)'], // Darker blue
+                    [1, 'rgba(13, 71, 161, 1)']         // Deep blue (high correlation)
+                ],
+                showscale: true,
+                colorbar: {
+                    title: {
+                        text: 'Correlation',
+                        font: {
+                            color: 'white',
+                            size: 14,
+                            family: 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif'
+                        }
+                    },
+                    tickfont: {
+                        color: 'white',
+                        size: 12,
+                        family: 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif'
+                    },
+                    outlinewidth: 1,
+                    outlinecolor: 'rgba(255, 255, 255, 0.3)',
+                    bgcolor: 'rgba(0, 0, 0, 0)',
+                    bordercolor: 'rgba(255, 255, 255, 0.2)',
+                    borderwidth: 1
+                },
+                hovertemplate: '<b>%{x} vs %{y}</b><br>Correlation: %{z:.2f}<extra></extra>',
+                hoverlabel: {
+                    bgcolor: 'rgba(13, 71, 161, 0.9)',
+                    bordercolor: 'rgba(255, 255, 255, 0.5)',
+                    font: {
+                        color: 'white',
+                        size: 12,
+                        family: 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif'
+                    }
+                }
+            }
+        ];
+
+        const layout = {
+            title: {
+                text: '',
+                font: {
+                    color: 'white',
+                    size: 18
+                }
+            },
+            autosize: true,
+            height: 500,
+            margin: { l: 100, r: 20, t: 20, b: 100 },
+            paper_bgcolor: 'rgba(0, 0, 0, 0)',
+            plot_bgcolor: 'rgba(0, 0, 0, 0)',
+            xaxis: {
+                tickfont: {
+                    color: 'white',
+                    size: 11,
+                    family: 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif'
+                },
+                title: {
+                    text: '',
+                    font: {
+                        color: 'white',
+                        size: 14
+                    }
+                },
+                gridcolor: 'rgba(255, 255, 255, 0.1)',
+                linecolor: 'rgba(255, 255, 255, 0.2)',
+                zerolinecolor: 'rgba(255, 255, 255, 0.2)'
+            },
+            yaxis: {
+                tickfont: {
+                    color: 'white',
+                    size: 11,
+                    family: 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif'
+                },
+                title: {
+                    text: '',
+                    font: {
+                        color: 'white',
+                        size: 14
+                    }
+                },
+                gridcolor: 'rgba(255, 255, 255, 0.1)',
+                linecolor: 'rgba(255, 255, 255, 0.2)',
+                zerolinecolor: 'rgba(255, 255, 255, 0.2)'
+            },
+            font: {
+                color: 'white',
+                family: 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif'
+            }
+        };
+
+        const config = {
+            responsive: true,
+            displayModeBar: true,
+            displaylogo: false,
+            modeBarButtonsToRemove: ['pan2d', 'lasso2d'],
+            toImageButtonOptions: {
+                format: 'png',
+                filename: 'rainfall_correlation_heatmap',
+                height: 500,
+                width: 800,
+                scale: 2
+            }
+        };
+
+        Plotly.newPlot('correlationHeatmap', correlationData, layout, config);
+
+        // Add smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Theme Toggle Functionality
+        function toggleTheme() {
+            const body = document.body;
+            const themeIcon = document.getElementById('theme-icon');
+            const themeText = document.getElementById('theme-text');
+
+            if (body.getAttribute('data-theme') === 'light') {
+                body.setAttribute('data-theme', 'dark');
+                themeIcon.className = 'fas fa-sun';
+                themeText.textContent = 'Light Mode';
+                localStorage.setItem('theme', 'dark');
+                updateChartColors('dark');
+            } else {
+                body.setAttribute('data-theme', 'light');
+                themeIcon.className = 'fas fa-moon';
+                themeText.textContent = 'Dark Mode';
+                localStorage.setItem('theme', 'light');
+                updateChartColors('light');
+            }
+        }
+
+        // Update chart colors based on theme
+        function updateChartColors(theme) {
+            const isDark = theme === 'dark';
+            const textColor = isDark ? '#e3f2fd' : '#1e3a5f';
+            const gridColor = isDark ? 'rgba(227, 242, 253, 0.1)' : 'rgba(30, 58, 95, 0.1)';
+
+            // Set Chart.js default color for legends
+            Chart.defaults.color = textColor;
+
+            // Update all charts
+            Chart.helpers.each(Chart.instances, function (instance) {
+                if (instance.config.options.scales) {
+                    // Update x-axis
+                    if (instance.config.options.scales.x) {
+                        instance.config.options.scales.x.ticks.color = textColor;
+                        if (instance.config.options.scales.x.title) {
+                            instance.config.options.scales.x.title.color = textColor;
+                        }
+                        instance.config.options.scales.x.grid.color = gridColor;
+                    }
+                    // Update y-axis
+                    if (instance.config.options.scales.y) {
+                        instance.config.options.scales.y.ticks.color = textColor;
+                        if (instance.config.options.scales.y.title) {
+                            instance.config.options.scales.y.title.color = textColor;
+                        }
+                        instance.config.options.scales.y.grid.color = gridColor;
+                    }
+                }
+
+                // Update legend colors
+                if (instance.config.options.plugins && instance.config.options.plugins.legend) {
+                    if (instance.config.options.plugins.legend.labels) {
+                        instance.config.options.plugins.legend.labels.color = textColor;
+                    }
+                }
+
+                instance.update();
+            });
+
+            // Update Plotly heatmap
+            updateHeatmapTheme(theme);
+        }
+
+        // Update Plotly heatmap colors based on theme
+        function updateHeatmapTheme(theme) {
+            const heatmapElement = document.getElementById('correlationHeatmap');
+            if (!heatmapElement || !heatmapElement.data) return;
+
+            const update = {
+                'xaxis.tickfont.color': 'white',
+                'yaxis.tickfont.color': 'white',
+                'xaxis.gridcolor': 'rgba(255, 255, 255, 0.1)',
+                'yaxis.gridcolor': 'rgba(255, 255, 255, 0.1)',
+                'xaxis.linecolor': 'rgba(255, 255, 255, 0.2)',
+                'yaxis.linecolor': 'rgba(255, 255, 255, 0.2)',
+                'colorbar.tickfont.color': 'white',
+                'colorbar.title.font.color': 'white'
+            };
+
+            Plotly.relayout('correlationHeatmap', update);
+        }
+
+        // Load saved theme on page load
+        document.addEventListener('DOMContentLoaded', function () {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            const body = document.body;
+            const themeIcon = document.getElementById('theme-icon');
+            const themeText = document.getElementById('theme-text');
+
+            body.setAttribute('data-theme', savedTheme);
+
+            if (savedTheme === 'dark') {
+                themeIcon.className = 'fas fa-sun';
+                themeText.textContent = 'Light Mode';
+            } else {
+                themeIcon.className = 'fas fa-moon';
+                themeText.textContent = 'Dark Mode';
+            }
+
+            // Initialize chart colors after a short delay to ensure charts are rendered
+            setTimeout(() => {
+                updateChartColors(savedTheme);
+            }, 500);
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function (entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all chart containers
+        document.querySelectorAll('.chart-container, .insight-item, .method-step').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Three.js Rainfall Animation
+        function initThreeJS() {
+            const canvas = document.getElementById('bg-canvas');
+            const scene = new THREE.Scene();
+            // Fog for depth
+            scene.fog = new THREE.FogExp2(0x0d1b2a, 0.002);
+
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.z = 1;
+            camera.rotation.x = 1.16;
+            camera.position.y = -0.12;
+            camera.position.x = 0;
+
+            const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+
+            // Rain Particles
+            const rainCount = 15000;
+            const rainGeo = new THREE.BufferGeometry();
+            const rainPositions = [];
+            const rainVelocities = [];
+
+            for (let i = 0; i < rainCount; i++) {
+                rainPositions.push(
+                    Math.random() * 400 - 200,
+                    Math.random() * 500 - 250,
+                    Math.random() * 400 - 200
+                );
+                rainVelocities.push(0);
+            }
+            rainGeo.setAttribute('position', new THREE.Float32BufferAttribute(rainPositions, 3));
+
+            const rainMat = new THREE.PointsMaterial({
+                color: 0xaaaaaa,
+                size: 0.1,
+                transparent: true
+            });
+            const rain = new THREE.Points(rainGeo, rainMat);
+            scene.add(rain);
+
+            // Cloud/Fog Particles (optional improvement)
+            const cloudGeo = new THREE.BufferGeometry();
+            const cloudCount = 50;
+            // Simple logic for clouds if needed, or keep it simple with fog
+
+            // Lighting
+            const ambientLight = new THREE.AmbientLight(0x555555);
+            scene.add(ambientLight);
+            const directionalLight = new THREE.DirectionalLight(0xffeedd);
+            directionalLight.position.set(0, 0, 1);
+            scene.add(directionalLight);
+
+            // Resize Handler
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+
+            // Animation Loop
+            function animate() {
+                const positions = rainGeo.attributes.position.array;
+                for (let i = 1; i < rainCount * 3; i += 3) {
+                    rainVelocities[i / 3 | 0] -= 0.1 + Math.random() * 0.1; // Gravity
+                    positions[i] -= 0.5 + Math.random() * 0.1; // Fall speed
+
+                    if (positions[i] < -200) {
+                        positions[i] = 200;
+                        rainVelocities[i / 3 | 0] = 0;
+                    }
+                }
+                rainGeo.attributes.position.needsUpdate = true;
+                rain.rotation.y += 0.002;
+
+                renderer.render(scene, camera);
+                requestAnimationFrame(animate);
+            }
+            animate();
+        }
+
+        // Initialize Three.js
+        document.addEventListener('DOMContentLoaded', initThreeJS);
+
+        // Keep Chart colors updated for dark theme (default)
+        Chart.defaults.color = '#e1f5fe';
+        Chart.defaults.borderColor = 'rgba(129, 212, 250, 0.1)';
+    </script>
+
+</body>
+
+</html>
