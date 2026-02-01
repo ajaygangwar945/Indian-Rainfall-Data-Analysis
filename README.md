@@ -31,7 +31,7 @@ This project presents a comprehensive, high-fidelity analysis of **64 years of I
 
 ## 🚀 Live Dashboard
 
-The interactive dashboard is live and can be accessed at the following link:
+The interactive dashboard is live and can be accessed at the following link.
 
 [![Live Site](https://img.shields.io/badge/Live-Dashboard-ffa726?style=for-the-badge&logo=github-pages&logoColor=white)](https://ajaygangwar945.github.io/Rainfall-Data-Analysis-Project/)
 
