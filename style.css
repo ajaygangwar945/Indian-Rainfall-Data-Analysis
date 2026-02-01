@@ -199,6 +199,7 @@ i {
 canvas {
     max-width: 100%;
 }
+
 /* Specific Header Styling */
 .topic-header {
     background: rgba(15, 35, 55, 0.75) !important;
@@ -228,7 +229,7 @@ canvas {
 .topic-badge h2 {
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 .topic-badge p {
@@ -275,19 +276,20 @@ code {
     border-color: var(--glass-border) !important;
 }
 
-.table th, .table td {
+.table th,
+.table td {
     background: transparent !important;
     border-color: rgba(129, 212, 250, 0.1) !important;
     color: var(--text-main);
 }
 
-.table-striped > tbody > tr:nth-of-type(odd) > * {
+.table-striped>tbody>tr:nth-of-type(odd)>* {
     background-color: rgba(255, 255, 255, 0.05) !important;
     color: var(--text-main);
     box-shadow: none !important;
 }
 
-.table-hover > tbody > tr:hover > * {
+.table-hover>tbody>tr:hover>* {
     background-color: rgba(255, 255, 255, 0.1) !important;
     color: #fff !important;
 }
@@ -385,7 +387,7 @@ code {
     background: rgba(0, 0, 0, 0.05);
 }
 
-[data-theme='light'] .table th, 
+[data-theme='light'] .table th,
 [data-theme='light'] .table td {
     border-color: rgba(0, 0, 0, 0.1) !important;
     color: #37474f;
@@ -411,4 +413,3 @@ code {
 [data-theme='light'] .theme-toggle:hover {
     background: rgba(0, 0, 0, 0.1);
 }
-

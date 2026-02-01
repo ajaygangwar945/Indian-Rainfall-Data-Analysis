@@ -8,7 +8,6 @@
 
 <div align="center">
 
-[![Python](https://img.shields.io/badge/PYTHON-3.x-0288d1?style=flat&logo=python&logoColor=white)](https://www.python.org/)
 ![Jupyter](https://img.shields.io/badge/JUPYTER-NOTEBOOK-ffa726?style=flat&logo=jupyter&logoColor=white)
 ![HTML/CSS](https://img.shields.io/badge/HTML/CSS-DASHBOARD-0056b3?style=flat&logo=html5&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JAVASCRIPT-INTERACTIVE-ffa726?style=flat&logo=javascript&logoColor=black)
@@ -28,6 +27,14 @@ This project presents a deep dive into **64 years of Indian Rainfall data (1951-
 - 📈 **Trend Analysis:** Identifying stable trends and shifts over decades.
 - 🤖 **ML Insights:** Using K-means clustering and Linear Regression for categorization and forecasting.
 - 💻 **Interactive Dashboard:** Premium web interface built with Glassmorphism design principles.
+
+---
+
+## 🚀 Live Dashboard
+
+The interactive dashboard is live and can be accessed at the following link:
+
+[![Live Site](https://img.shields.io/badge/Live-Dashboard-ffa726?style=for-the-badge&logo=github-pages&logoColor=white)](https://ajaygangwar945.github.io/Rainfall-Data-Analysis-Project/)
 
 ---
 
