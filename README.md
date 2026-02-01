@@ -7,17 +7,16 @@
 <div align="center">
 
 ![Status](https://img.shields.io/badge/STATUS-COMPLETED-2ea44f?style=flat&logo=checkmarx)
-![Stars](https://img.shields.io/github/stars/ajaygangwar945/Rainfall-Data-Analysis-Project?style=flat&color=FF4B4B&logo=github)
-![Forks](https://img.shields.io/github/forks/ajaygangwar945/Rainfall-Data-Analysis-Project?style=flat&color=FF4B4B&logo=github)
+![Stars](https://img.shields.io/github/stars/ajaygangwar945/Rainfall-Data-Analysis-Project?style=flat&color=0288d1&logo=github)
+![Forks](https://img.shields.io/github/forks/ajaygangwar945/Rainfall-Data-Analysis-Project?style=flat&color=0288d1&logo=github)
 ![Python](https://img.shields.io/badge/PYTHON-3.x-0288d1?style=flat&logo=python&logoColor=white)
-![Jupyter](https://img.shields.io/badge/JUPYTER-NOTEBOOK-F37626?style=flat&logo=jupyter&logoColor=white)
-![HTML/CSS](https://img.shields.io/badge/HTML/CSS-DASHBOARD-E34C26?style=flat&logo=html5&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JAVASCRIPT-INTERACTIVE-F7DF1E?style=flat&logo=javascript&logoColor=black)
-![Responsive](https://img.shields.io/badge/MOBILE-RESPONSIVE-blue?style=flat&logo=mobile&logoColor=white)
-![Design](https://img.shields.io/badge/DESIGN-GLASSMORPHISM-a2d2ff?style=flat)
+![Jupyter](https://img.shields.io/badge/JUPYTER-NOTEBOOK-ffa726?style=flat&logo=jupyter&logoColor=white)
+![HTML/CSS](https://img.shields.io/badge/HTML/CSS-DASHBOARD-0056b3?style=flat&logo=html5&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JAVASCRIPT-INTERACTIVE-ffa726?style=flat&logo=javascript&logoColor=black)
+![Responsive](https://img.shields.io/badge/MOBILE-RESPONSIVE-0288d1?style=flat&logo=mobile&logoColor=white)
+![Design](https://img.shields.io/badge/DESIGN-GLASSMORPHISM-0056b3?style=flat)
 ![Size](https://img.shields.io/github/repo-size/ajaygangwar945/Rainfall-Data-Analysis-Project?style=flat&color=0288d1)
 ![Last Commit](https://img.shields.io/github/last-commit/ajaygangwar945/Rainfall-Data-Analysis-Project?style=flat&color=0288d1)
-![License](https://img.shields.io/badge/LICENSE-MIT-green?style=flat)
 
 </div>
 
@@ -66,7 +65,8 @@
 
 The project is fully deployed and accessible online.
 
-[![Live Demo](https://img.shields.io/badge/LIVE-VISIT_SITE-FF4B4B?style=flat&logo=github-pages&logoColor=white)](https://ajaygangwar945.github.io/Rainfall-Data-Analysis-Project/)
+[![Live Demo](https://img.shields.io/badge/LIVE-VISIT_SITE-ffa726?style=flat&logo=github-pages&logoColor=white)](https://ajaygangwar945.github.io/Rainfall-Data-Analysis-Project/)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/ajaygangwar945/Rainfall-Data-Analysis-Project)
 
 ### **1. Jupyter Notebook Analysis (`Rainfall.ipynb`)**
 
