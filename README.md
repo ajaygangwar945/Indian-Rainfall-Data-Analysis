@@ -8,8 +8,8 @@
 
 <div align="center">
 
-![Jupyter](https://img.shields.io/badge/JUPYTER-NOTEBOOK-ffa726?style=for-the-badge&logo=jupyter&logoColor=white)
-![HTML/CSS](https://img.shields.io/badge/HTML/CSS-DASHBOARD-0056b3?style=for-the-badge&logo=html5&logoColor=white)
+![Jupyter](https://img.shields.io/badge/JUPYTER-NOTEBOOK-1e88e5?style=for-the-badge&logo=jupyter&logoColor=white)
+![HTML/CSS](https://img.shields.io/badge/HTML/CSS-DASHBOARD-00acc1?style=for-the-badge&logo=html5&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JAVASCRIPT-INTERACTIVE-ffa726?style=for-the-badge&logo=javascript&logoColor=black)
 
 </div>
@@ -33,7 +33,7 @@ This project presents a comprehensive, high-fidelity analysis of **64 years of I
 
 The interactive dashboard is live and can be accessed at the following link.
 
-[![Live Site](https://img.shields.io/badge/Live-Dashboard-ffa726?style=for-the-badge&logo=github-pages&logoColor=white)](https://ajaygangwar945.github.io/Rainfall-Data-Analysis-Project/)
+[![Live Site](https://img.shields.io/badge/Live-Dashboard-00bcd4?style=for-the-badge&logo=github-pages&logoColor=white)](https://ajaygangwar945.github.io/Rainfall-Data-Analysis-Project/)
 
 ---
 
@@ -90,14 +90,14 @@ An immersive web experience focusing on aesthetics and performance:
 
 ```bash
 .
-├── .gitignore          # Git exclusion rules
-├── README.md           # Project documentation
-├── Rainfall.csv        # Raw dataset from IMD
-├── Rainfall.ipynb      # Advanced analysis & ML workbook
-├── index.html          # Dashboard entry point (Premium UI)
-├── style.css           # Glassmorphism design system
-├── rain_icon.svg       # Project branding & favicon
-└── Gemini_Generated_Image_vp2kcvvp2kcvvp2k.png  # Dashboard banner
+├── .gitignore                                  # Git exclusion rules
+├── README.md                                   # Project documentation
+├── Rainfall.csv                                # Raw dataset from IMD
+├── Rainfall.ipynb                              # Advanced analysis & ML workbook
+├── index.html                                  # Dashboard entry point (Premium UI)
+├── style.css                                   # Glassmorphism design system
+├── rain_icon.svg                               # Project branding & favicon
+└── Gemini_Generated_Image_vp2kcvvp2kcvvp2k.png # Dashboard banner
 ```
 
 ---
