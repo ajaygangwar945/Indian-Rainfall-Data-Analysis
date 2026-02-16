@@ -403,6 +403,11 @@ code {
     box-shadow: 0 10px 20px rgba(0, 100, 255, 0.15);
 }
 
+[data-theme='light'] .table-hover>tbody>tr:hover>* {
+    background-color: rgba(0, 0, 0, 0.05) !important;
+    color: #1e3a5f !important;
+}
+
 
 [data-theme='light'] .theme-toggle {
     background: rgba(0, 0, 0, 0.05);
