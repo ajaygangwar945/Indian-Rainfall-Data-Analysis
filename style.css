@@ -319,6 +319,51 @@ code {
 }
 
 
+/* Colorful Typography Enhancements */
+h2 {
+    background: linear-gradient(to right, var(--primary), var(--text-muted));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.stat-card i,
+.feature-item i,
+.insight-item i,
+.method-step i,
+.chart-title i {
+    color: var(--accent);
+    text-shadow: 0 0 10px rgba(255, 167, 38, 0.3);
+}
+
+.stat-card h3 {
+    color: var(--text-muted);
+    margin: 8px 0;
+    font-size: 1.5rem;
+}
+
+.insight-item h4,
+.method-step h4,
+.chart-title {
+    color: var(--secondary);
+}
+
+/* Specific overrides for light mode to ensure visibility */
+[data-theme='light'] h2 {
+    background: linear-gradient(to right, #01579b, #0288d1);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+[data-theme='light'] .stat-card h3,
+[data-theme='light'] .insight-item h4,
+[data-theme='light'] .method-step h4,
+[data-theme='light'] .chart-title {
+    color: #0277bd;
+}
+
 /* Stat Card and Feature Item Refinements */
 .stat-card,
 .feature-item {
@@ -330,21 +375,12 @@ code {
 .stat-card i,
 .feature-item i {
     font-size: 2rem;
-    /* Reduced from 2.5rem */
     margin-bottom: 10px;
-    /* Reduced from 15px */
-}
-
-.stat-card h3 {
-    margin: 8px 0;
-    font-size: 1.5rem;
-    /* Reduced from 2rem */
 }
 
 .stat-card p {
     margin-bottom: 0;
     font-size: 0.9rem;
-    /* Reduced from 1.1rem */
 }
 
 .feature-item h5 {

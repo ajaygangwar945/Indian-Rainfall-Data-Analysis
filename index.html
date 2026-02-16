@@ -608,40 +608,66 @@
                 <div class="insights-section">
                     <h2><i class="fas fa-lightbulb"></i> Key Insights & Findings</h2>
 
-                    <div class="insight-item">
-                        <h4><i class="fas fa-chart-line"></i> Trend Analysis</h4>
-                        <p>No significant difference in rainfall patterns before and after 1980 (p-value: 0.349). Linear
-                            regression shows a stable trend with minimal variation over the 64-year period.</p>
-                    </div>
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="insight-item">
+                                <h4><i class="fas fa-chart-line"></i> Trend Analysis</h4>
+                                <p>No significant difference in rainfall patterns before and after 1980 (p-value:
+                                    0.349). Linear
+                                    regression shows a stable trend with minimal variation over the 64-year period.</p>
+                            </div>
+                        </div>
 
-                    <div class="insight-item">
-                        <h4><i class="fas fa-exclamation-triangle"></i> Outlier Detection</h4>
-                        <p>13 extreme rainfall events identified, primarily in Arunachal Pradesh and Coastal Karnataka.
-                            The
-                            highest recorded rainfall was 5,554 mm in Coastal Karnataka (1961).</p>
-                    </div>
+                        <div class="col-md-6">
+                            <div class="insight-item">
+                                <h4><i class="fas fa-exclamation-triangle"></i> Outlier Detection</h4>
+                                <p>13 extreme rainfall events identified, primarily in Arunachal Pradesh and Coastal
+                                    Karnataka.
+                                    The
+                                    highest recorded rainfall was 5,554 mm in Coastal Karnataka (1961).</p>
+                            </div>
+                        </div>
 
-                    <div class="insight-item">
-                        <h4><i class="fas fa-calendar-alt"></i> Seasonal Patterns</h4>
-                        <p>June-September period (Monsoon) contributes approximately 75% of annual rainfall, with July
-                            being
-                            the
-                            peak month averaging 343 mm.</p>
-                    </div>
+                        <div class="col-md-6">
+                            <div class="insight-item">
+                                <h4><i class="fas fa-calendar-alt"></i> Seasonal Patterns</h4>
+                                <p>June-September period (Monsoon) contributes approximately 75% of annual rainfall,
+                                    with July
+                                    being
+                                    the
+                                    peak month averaging 343 mm.</p>
+                            </div>
+                        </div>
 
-                    <div class="insight-item">
-                        <h4><i class="fas fa-map-marked-alt"></i> Regional Variations</h4>
-                        <p>Coastal Karnataka, Arunachal Pradesh, and Kerala receive the highest rainfall, while
-                            Rajasthan
-                            and
-                            Gujarat regions experience the lowest precipitation.</p>
-                    </div>
+                        <div class="col-md-6">
+                            <div class="insight-item">
+                                <h4><i class="fas fa-map-marked-alt"></i> Regional Variations</h4>
+                                <p>Coastal Karnataka, Arunachal Pradesh, and Kerala receive the highest rainfall, while
+                                    Rajasthan
+                                    and
+                                    Gujarat regions experience the lowest precipitation.</p>
+                            </div>
+                        </div>
 
-                    <div class="insight-item">
-                        <h4><i class="fas fa-project-diagram"></i> Clustering Analysis</h4>
-                        <p>K-means clustering identified 4 distinct rainfall patterns across regions, grouping areas
-                            with
-                            similar precipitation characteristics for better regional planning.</p>
+                        <div class="col-md-6">
+                            <div class="insight-item">
+                                <h4><i class="fas fa-project-diagram"></i> Clustering Analysis</h4>
+                                <p>K-means clustering identified 4 distinct rainfall patterns across regions, grouping
+                                    areas
+                                    with
+                                    similar precipitation characteristics for better regional planning.</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="insight-item">
+                                <h4><i class="fas fa-history"></i> Decadal Fluctuations</h4>
+                                <p>Periodic fluctuations observed every decade highlight long-term climatic cycles,
+                                    indicating
+                                    distinct
+                                    wet and dry epochs influencing overall rainfall magnitude.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -649,39 +675,64 @@
                 <div class="methodology-section">
                     <h2><i class="fas fa-cogs"></i> Analysis Methodology</h2>
 
-                    <div class="method-step">
-                        <h4><i class="fas fa-database"></i> Data Collection & Cleaning</h4>
-                        <p>Loaded rainfall dataset from 1951-2014, handled missing values using median imputation, and
-                            performed
-                            data validation to ensure quality.</p>
-                    </div>
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="method-step">
+                                <h4><i class="fas fa-database"></i> Data Collection & Cleaning</h4>
+                                <p>Loaded rainfall dataset from 1951-2014, handled missing values using median
+                                    imputation, and
+                                    performed
+                                    data validation to ensure quality.</p>
+                            </div>
+                        </div>
 
-                    <div class="method-step">
-                        <h4><i class="fas fa-chart-bar"></i> Descriptive Statistics</h4>
-                        <p>Calculated summary statistics, identified data distributions, and performed initial
-                            exploratory
-                            analysis to understand data characteristics.</p>
-                    </div>
+                        <div class="col-md-6">
+                            <div class="method-step">
+                                <h4><i class="fas fa-chart-bar"></i> Descriptive Statistics</h4>
+                                <p>Calculated summary statistics, identified data distributions, and performed initial
+                                    exploratory
+                                    analysis to understand data characteristics.</p>
+                            </div>
+                        </div>
 
-                    <div class="method-step">
-                        <h4><i class="fas fa-search"></i> Statistical Analysis</h4>
-                        <p>Applied t-tests for comparing time periods, z-score analysis for outlier detection, and
-                            correlation
-                            analysis for variable relationships.</p>
-                    </div>
+                        <div class="col-md-6">
+                            <div class="method-step">
+                                <h4><i class="fas fa-search"></i> Statistical Analysis</h4>
+                                <p>Applied t-tests for comparing time periods, z-score analysis for outlier detection,
+                                    and
+                                    correlation
+                                    analysis for variable relationships.</p>
+                            </div>
+                        </div>
 
-                    <div class="method-step">
-                        <h4><i class="fas fa-brain"></i> Machine Learning</h4>
-                        <p>Utilized linear regression for trend analysis and K-means clustering for regional grouping
-                            based
-                            on
-                            rainfall patterns.</p>
-                    </div>
+                        <div class="col-md-6">
+                            <div class="method-step">
+                                <h4><i class="fas fa-brain"></i> Machine Learning</h4>
+                                <p>Utilized linear regression for trend analysis and K-means clustering for regional
+                                    grouping
+                                    based
+                                    on
+                                    rainfall patterns.</p>
+                            </div>
+                        </div>
 
-                    <div class="method-step">
-                        <h4><i class="fas fa-palette"></i> Data Visualization</h4>
-                        <p>Created interactive charts and plots using multiple visualization libraries to effectively
-                            communicate insights and patterns.</p>
+                        <div class="col-md-6">
+                            <div class="method-step">
+                                <h4><i class="fas fa-palette"></i> Data Visualization</h4>
+                                <p>Created interactive charts and plots using multiple visualization libraries to
+                                    effectively
+                                    communicate insights and patterns.</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="method-step">
+                                <h4><i class="fas fa-file-alt"></i> Conclusion & Reporting</h4>
+                                <p>Summarized key findings and trends into a final report, providing actionable insights
+                                    for
+                                    agricultural planning and water resource management.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
