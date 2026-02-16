@@ -52,7 +52,7 @@ body {
     box-shadow: var(--glass-shadow) !important;
     border-radius: 16px !important;
     color: var(--text-main) !important;
-    margin-bottom: 24px;
+    margin-bottom: 48px;
     padding: 24px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -417,4 +417,162 @@ code {
 
 [data-theme='light'] .theme-toggle:hover {
     background: rgba(0, 0, 0, 0.1);
+}
+
+/* Data Dictionary Badge Styling */
+.col-label-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-family: 'monospace';
+}
+
+/* Badge Colors (Matching Screenshot Aesthetic) */
+.badge-red {
+    background-color: rgba(255, 205, 210, 0.7);
+    color: #c62828 !important;
+    border: 1px solid rgba(198, 40, 40, 0.1);
+}
+
+.badge-blue {
+    background-color: rgba(187, 222, 251, 0.7);
+    color: #1565c0 !important;
+    border: 1px solid rgba(21, 101, 192, 0.1);
+}
+
+.badge-orange {
+    background-color: rgba(255, 224, 178, 0.7);
+    color: #e65100 !important;
+    border: 1px solid rgba(230, 81, 0, 0.1);
+}
+
+.badge-gray {
+    background-color: rgba(238, 238, 238, 0.7);
+    color: #424242 !important;
+    border: 1px solid rgba(66, 66, 66, 0.1);
+}
+
+/* Dark mode adjustments for badges */
+[data-theme='dark'] .badge-red {
+    background-color: rgba(198, 40, 40, 0.2);
+    color: #ff8a80 !important;
+    border-color: rgba(255, 138, 128, 0.3);
+}
+
+[data-theme='dark'] .badge-blue {
+    background-color: rgba(21, 101, 192, 0.2);
+    color: #90caf9 !important;
+    border-color: rgba(144, 202, 249, 0.3);
+}
+
+[data-theme='dark'] .badge-orange {
+    background-color: rgba(230, 81, 0, 0.2);
+    color: #ffcc80 !important;
+    border-color: rgba(255, 204, 128, 0.3);
+}
+
+[data-theme='dark'] .badge-gray {
+    background-color: rgba(66, 66, 66, 0.2);
+    color: #e0e0e0 !important;
+    border-color: rgba(224, 224, 224, 0.3);
+}
+
+/* --- Mobile Responsiveness Utilities --- */
+
+@media (max-width: 992px) {
+    .hero-section h1 {
+        font-size: 2.8rem;
+    }
+
+    .topic-badge h2 {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .topic-header {
+        padding: 40px 0;
+    }
+
+    .topic-badge h2 {
+        font-size: 1.8rem;
+    }
+
+    .hero-section {
+        padding: 50px 0;
+    }
+
+    .hero-section h1 {
+        font-size: 2.2rem;
+    }
+
+    .stat-card {
+        margin-bottom: 20px;
+    }
+
+    .stat-card h3 {
+        font-size: 1.5rem;
+    }
+
+    .chart-container,
+    .info-card,
+    .tech-card,
+    .install-card {
+        padding: 15px;
+        margin-bottom: 24px !important;
+        /* Consistent spacing */
+        height: auto !important;
+        /* Prevent h-100 overlap issues */
+    }
+
+    .theme-toggle {
+        top: 10px;
+        right: 10px;
+        padding: 8px 15px;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .topic-badge h2 {
+        font-size: 1.4rem;
+    }
+
+    .hero-section h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-section p {
+        font-size: 1rem;
+    }
+
+    .footer {
+        padding: 30px 0;
+    }
+
+    .rainfall-category {
+        font-size: 0.75rem;
+        padding: 4px 10px;
+    }
+
+    /* Ensure charts don't overflow */
+    canvas {
+        height: auto !important;
+    }
+
+    /* Improvement for tables on mobile */
+    .table-responsive {
+        border-radius: 12px;
+        overflow-x: auto;
+    }
+
+    .table th,
+    .table td {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+    }
 }
