@@ -55,12 +55,13 @@ body {
     color: var(--text-main) !important;
     margin-bottom: 30px;
     /* Reduced from 48px for tighter grid */
-    padding: 24px;
+    padding: 18px;
+    /* Reduced from 24px */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
-    height: 100%;
-    /* Force equal height in flex row */
+    height: calc(100% - 30px);
+    /* Account for margin-bottom to prevent overlap */
     min-height: 180px;
     /* Baseline height */
     overflow: hidden;
@@ -328,18 +329,27 @@ code {
 
 .stat-card i,
 .feature-item i {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
+    font-size: 2rem;
+    /* Reduced from 2.5rem */
+    margin-bottom: 10px;
+    /* Reduced from 15px */
 }
 
 .stat-card h3 {
-    margin: 10px 0;
-    font-size: 2rem;
+    margin: 8px 0;
+    font-size: 1.5rem;
+    /* Reduced from 2rem */
 }
 
 .stat-card p {
     margin-bottom: 0;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
+    /* Reduced from 1.1rem */
+}
+
+.feature-item h5 {
+    font-size: 1rem;
+    margin-bottom: 0;
 }
 
 .feature-item:hover {

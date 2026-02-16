@@ -62,7 +62,7 @@
                         </div>
                     </div>
 
-                    <div class="row dataset-info-grid">
+                    <div class="row g-4 dataset-info-grid">
                         <div class="col-md-6">
                             <div class="info-card">
                                 <h4><i class="fas fa-info-circle"></i> Dataset Overview</h4>
@@ -327,7 +327,7 @@
                     </div>
 
                     <!-- Dashboard Features Overview -->
-                    <div class="row mt-4">
+                    <div class="row mt-4 g-4">
                         <div class="col-12">
                             <div class="features-overview">
                                 <h4><i class="fas fa-star"></i> Dashboard Features</h4>
@@ -1462,18 +1462,24 @@
 
         // Update Plotly heatmap colors based on theme
         function updateHeatmapTheme(theme) {
+            const isDark = theme === 'dark';
+            const textColor = isDark ? '#e3f2fd' : '#1e3a5f';
+            const gridColor = isDark ? 'rgba(227, 242, 253, 0.1)' : 'rgba(30, 58, 95, 0.1)';
+
             const heatmapElement = document.getElementById('correlationHeatmap');
             if (!heatmapElement || !heatmapElement.data) return;
 
             const update = {
-                'xaxis.tickfont.color': 'white',
-                'yaxis.tickfont.color': 'white',
-                'xaxis.gridcolor': 'rgba(255, 255, 255, 0.1)',
-                'yaxis.gridcolor': 'rgba(255, 255, 255, 0.1)',
-                'xaxis.linecolor': 'rgba(255, 255, 255, 0.2)',
-                'yaxis.linecolor': 'rgba(255, 255, 255, 0.2)',
-                'colorbar.tickfont.color': 'white',
-                'colorbar.title.font.color': 'white'
+                'xaxis.tickfont.color': textColor,
+                'yaxis.tickfont.color': textColor,
+                'xaxis.gridcolor': gridColor,
+                'yaxis.gridcolor': gridColor,
+                'xaxis.linecolor': gridColor,
+                'yaxis.linecolor': gridColor,
+                'colorbar.tickfont.color': textColor,
+                'colorbar.title.font.color': textColor,
+                'paper_bgcolor': 'transparent',
+                'plot_bgcolor': 'transparent'
             };
 
             Plotly.relayout('correlationHeatmap', update);
