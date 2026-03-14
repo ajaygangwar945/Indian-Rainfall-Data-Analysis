@@ -29,6 +29,14 @@ This project presents a comprehensive, high-fidelity analysis of **64 years of I
 
 ---
 
+## 📚 Documentation
+
+For a deep dive into the technical details, implementation logic, and full working of this project, please refer to the comprehensive documentation:
+
+- [Project_Documentation.txt](Project_Documentation.txt) - *Includes topics used, methodology, and step-by-step pipeline explanation.*
+
+---
+
 ## 🚀 Live Dashboard
 
 The interactive dashboard is live and can be accessed at the following link.
@@ -91,7 +99,8 @@ An immersive web experience focusing on aesthetics and performance:
 ```bash
 .
 ├── .gitignore                                  # Git exclusion rules
-├── README.md                                   # Project documentation
+├── README.md                                   # Project overview & quick start
+├── Project_Documentation.txt                   # Deep-dive technical documentation
 ├── Rainfall.csv                                # Raw dataset from IMD
 ├── Rainfall.ipynb                              # Advanced analysis & ML workbook
 ├── index.html                                  # Dashboard entry point (Premium UI)
